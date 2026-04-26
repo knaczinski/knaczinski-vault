@@ -1,0 +1,49 @@
+#!/bin/sh
+# post-commit hook — feeds commit info into the Obsidian vault inbox
+# Install: copy this file to .git/hooks/post-commit in any repo
+
+VAULT="C:/Users/felip/Documents/dev/obsidian/knaczinski-vault"
+INBOX="$VAULT/00 - Inbox"
+
+# Collect commit data
+REPO=$(basename "$(git rev-parse --show-toplevel)")
+HASH=$(git rev-parse --short HEAD)
+DATE=$(date +"%Y-%m-%d")
+DATETIME=$(date +"%Y-%m-%d %H:%M")
+MSG=$(git log -1 --pretty=%s)
+AUTHOR=$(git log -1 --pretty=%an)
+FILES=$(git diff-tree --no-commit-id -r --name-only HEAD | head -20)
+FILES_FORMATTED=$(echo "$FILES" | sed 's/^/- /')
+
+# Build note filename: YYYY-MM-DD-repo-hash.md
+NOTE="$INBOX/$DATE-$REPO-$HASH.md"
+
+cat > "$NOTE" << EOF
+---
+title: "[$REPO] $MSG"
+date: $DATE
+tags: [dev, git, $REPO]
+status: draft
+source: git-hook
+---
+
+# [$REPO] $MSG
+
+## Commit
+- **Repo:** $REPO
+- **Hash:** \`$HASH\`
+- **Author:** $AUTHOR
+- **Date:** $DATETIME
+
+## Message
+$MSG
+
+## Files changed
+$FILES_FORMATTED
+
+## Notes
+<!-- What was learned? Any interesting decision? -->
+
+EOF
+
+exit 0

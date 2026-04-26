@@ -1,0 +1,11 @@
+# Obsidian workspace state (local only)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Plugins with sensitive/local data
+.obsidian/plugins/obsidian-git/data.json
