@@ -36,6 +36,10 @@ Read this file before taking any action.
   research/          Research and summarization workflows.
   projects/          Project management workflows.
   vault/             Vault maintenance workflows.
+06 - Personal/       Felipe's personal profile, documents catalog, sensitive data.
+  profile.md         Career, education, skills, contact — safe to commit.
+  documents-index.md Catalog of official documents — safe to commit.
+  documents-sensitive.md  Document numbers (CPF, RG, etc.) — GITIGNORED, never commit.
 _system/             Templates and hooks. Not for content.
 SETUP.md             Machine configuration checklist. Update when adding new configs.
 ```
@@ -96,6 +100,10 @@ Read the skill file and follow its instructions precisely.
 - Prefer editing existing notes over creating new ones for the same topic
 - Update `status` when a note moves from draft → active
 
+### Sensitive data
+- Never write CPF, RG, or document numbers into any file other than `06 - Personal/documents-sensitive.md`
+- That file is gitignored — never remind Felipe to commit it
+
 ### After writing
 - Remind Felipe to commit: `git add . && git commit -m "..."`
 
@@ -117,6 +125,7 @@ Read the skill file and follow its instructions precisely.
 | Research | Investigations into technical topics | `01 - Notes` |
 | AI Skills | Reusable workflows for Claude | `05 - Skills` |
 | Quick thoughts | Raw ideas to be processed | `00 - Inbox` |
+| Personal info | Career, documents, profile | `06 - Personal` |
 
 ---
 
@@ -128,3 +137,4 @@ Read the skill file and follow its instructions precisely.
 - Do not skip frontmatter
 - Do not invent information — if unsure, mark with `> [!question] Needs verification`
 - Do not add new machine configurations without documenting them in `SETUP.md`
+- Do not write CPF, RG, or other document numbers outside of `06 - Personal/documents-sensitive.md`

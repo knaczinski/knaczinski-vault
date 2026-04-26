@@ -9,3 +9,6 @@ Thumbs.db
 
 # Plugins with sensitive/local data
 .obsidian/plugins/obsidian-git/data.json
+
+# Personal sensitive data — never commit
+06 - Personal/documents-sensitive.md
