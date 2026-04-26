@@ -10,13 +10,18 @@ When cloning this vault on a new machine, run through this checklist completely.
 
 ## How to use
 
-1. Clone the vault:
+1. Clone the vault into the correct path:
+   ```bash
+   git clone https://github.com/knaczinski/knaczinski-vault.git "C:\Users\<you>\Documents\dev\obsidian\knaczinski-vault"
    ```
-   git clone <repo-url> C:\Users\<you>\Documents\dev\obsidian\knaczinski-vault
+2. Set the upstream tracking branch (run once after clone):
+   ```bash
+   cd "C:/Users/<you>/Documents/dev/obsidian/knaczinski-vault"
+   git branch --set-upstream-to=origin/main main
    ```
-2. Open Obsidian, add the cloned folder as a vault.
-3. Work through every section below in order.
-4. Mark each item as done by replacing `[ ]` with `[x]`.
+3. Open Obsidian, add the cloned folder as a vault.
+4. Work through every section below in order.
+5. Mark each item as done by replacing `[ ]` with `[x]`.
 
 ---
 
